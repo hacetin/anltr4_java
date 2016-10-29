@@ -6,8 +6,11 @@ compilationUnit : ( statement )* EOF; //root rule - globally code consist only o
 variable : VARIABLE ID EQUALS value; //requires VAR token followed by ID token followed by EQUALS TOKEN ...
 print : PRINT ID ; //print statement must consist of 'print' keyword and ID
 
-ifStatement :  ('if'  ('(')? expression (')')? trueStatement=statement ('else' falseStatement=statement)?);
-block : '{' statement '}';
+ifStatement :  ( ifLable  ('(')? expression (')')? trueStatement=statement ( elseLable falseStatement=statement)?);
+block : '{' statement* '}';
+
+ifLable : IF ;
+elseLable : ELSE ;
 
 statement : block
 		| print
@@ -28,6 +31,8 @@ value : NUMBER
       | STRING ; //must be NUMBER or STRING value (defined below)
 
 //lexer rules (tokens)
+IF: 'if' ;
+ELSE: 'else' ;
 VARIABLE : 'var' ; //VARIABLE TOKEN must match exactly 'var'
 PRINT : 'print' ;
 EQUALS : '=' ; //must be '='
