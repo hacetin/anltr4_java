@@ -22,8 +22,6 @@ public class SyntaxTreeTraverser {
         
         JFrame frame = new JFrame("Antlr AST");
         JPanel panel = new JPanel();
-        //System.out.println(Arrays.asList(parser.getRuleNames()));
-        //System.out.println(tree.toStringTree());
         TreeViewer viewr = new TreeViewer(Arrays.asList(parser.getRuleNames()), tree);
         viewr.setScale(1.5);//scale a little
         panel.add(viewr);
@@ -31,7 +29,5 @@ public class SyntaxTreeTraverser {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1200, 500);
         frame.setVisible(true);
-        
-        //return listener.getVarMap();
     }
 }
