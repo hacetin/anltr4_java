@@ -1,25 +1,60 @@
 // Control Flow Graph
 digraph {
-	1349277854 [label=START]
-	1108411398 [label="var a"]
-		1349277854 -> 1108411398
-	1394438858 [label="var b"]
-		1108411398 -> 1394438858
-	584634336 [label="if true"]
-		1394438858 -> 584634336
-	340870931 [label="print a"]
-		584634336 -> 340870931
-	517380410 [label="if false"]
-		1394438858 -> 517380410
-	2117255219 [label="print b"]
-		517380410 -> 2117255219
-	2058534881 [label="var c"]
-		2117255219 -> 2058534881
-	1232367853 [label="print c"]
-		2058534881 -> 1232367853
-	1673605040 [label="var foo"]
-		340870931 -> 1673605040
-		1232367853 -> 1673605040
-	186276003 [label="print foo"]
-		1673605040 -> 186276003
+	1 [label=START]
+	2 [label="if start"]
+		1 -> 2
+	3 [label="if true"]
+		2 -> 3
+	4 [label="print a1"]
+		3 -> 4
+	5 [label="if start"]
+		4 -> 5
+	6 [label="if true"]
+		5 -> 6
+	7 [label="print a2"]
+		6 -> 7
+	8 [label="if start"]
+		7 -> 8
+	9 [label="if true"]
+		8 -> 9
+	10 [label="print a3"]
+		9 -> 10
+	11 [label=else]
+		8 -> 11
+	12 [label="print b3"]
+		11 -> 12
+	13 [label="if end"]
+		10 -> 13
+		12 -> 13
+	14 [label=else]
+		5 -> 14
+	15 [label="print b2"]
+		14 -> 15
+	16 [label="if end"]
+		13 -> 16
+		15 -> 16
+	17 [label=else]
+		2 -> 17
+	18 [label="print b1"]
+		17 -> 18
+	19 [label="if start"]
+		18 -> 19
+	20 [label="if true"]
+		19 -> 20
+	21 [label="print a4"]
+		20 -> 21
+	22 [label=else]
+		19 -> 22
+	23 [label="print b4"]
+		22 -> 23
+	24 [label="if end"]
+		21 -> 24
+		23 -> 24
+	25 [label="if end"]
+		16 -> 25
+		24 -> 25
+	26 [label="var foo"]
+		25 -> 26
+	27 [label="print foo"]
+		26 -> 27
 }

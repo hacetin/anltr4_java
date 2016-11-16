@@ -1,11 +1,22 @@
-var a = 5
-var b = 6
 if(3>2) {
-	print a        
+	print a1	
+	if(3>2) {
+		print a2	
+		if(3>2) {
+			print a3	
+		}else {
+		    print b3
+		}
+	}else {
+	    print b2
+	}
 }else {
-    print b
-    var c = 7
-    print c
+    print b1
+    if(3>2) {
+		print a4	
+	}else {
+	    print b4
+	}
 }
 var foo = 7
 print foo
