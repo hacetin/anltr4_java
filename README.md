@@ -1,8 +1,8 @@
 # anltr4_java
 That repository is an Antlr4 example in Java.  
 
-Java classes in src folder create a window showing syntax tree and a python file named "output.py".
-When "output.py" file runs, graph1.pdf files is created. graph1.pdf file is control flow graph. 
+Java classes in src folder create a window showing the syntax tree of "first.enk" file and a python file named "output.py".
+When "output.py" file runs, graph1.pdf files is created. graph1.pdf file is control flow graph for "first.enk". 
 There are examples in master directory as 
   - "first.enk" for the code written in new_Enkel grammar, 
   - "output.py" for the python code which creates control flow diagram named "graph1.pdf"
