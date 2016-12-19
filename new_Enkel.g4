@@ -3,21 +3,27 @@ grammar new_Enkel;
 
 //parser rules
 compilationUnit : ( statement )* EOF; //root rule - globally code consist only of variables and prints (see definition below)
-variable : VARIABLE ID EQUALS value; //requires VAR token followed by ID token followed by EQUALS TOKEN ...
-print : PRINT ID ; //print statement must consist of 'print' keyword and ID
 
-ifStatement :  ( ifLable  ('(')? expression (')')? trueStatement=statement ( elseLable falseStatement=statement)?);
 block : '{' statement* '}';
-
-ifLable : IF ;
-elseLable : ELSE ;
 
 statement : block
 		| print
 		| variable
-		| ifStatement;
+		| ifStatement
+		| forStatement ;
 
-expression : value        #VALUE
+
+variable : VARIABLE ID EQUALS value; //requires VAR token followed by ID token followed by EQUALS TOKEN ...
+print : PRINT ID ; //print statement must consist of 'print' keyword and ID
+ifStatement :  ( ifLabel  ('(')? expression (')')? trueStatement=statement ( elseLabel falseStatement=statement)?);
+forStatement : 'for' ('(')? forConditions (')')? statement ;
+
+forConditions : iterator=variableReference  'from' startExpr=expression range='to' endExpr=expression ;
+ifLabel : IF ;
+elseLabel : ELSE ;
+
+expression :variableReference #VarReference 
+		   |value        #VALUE
            //other expression alternatives
            | expression cmp='>' expression #conditionalExpression
            | expression cmp='<' expression #conditionalExpression
@@ -29,6 +35,8 @@ expression : value        #VALUE
 
 value : NUMBER
       | STRING ; //must be NUMBER or STRING value (defined below)
+
+variableReference : ID ;
 
 //lexer rules (tokens)
 IF: 'if' ;

@@ -1,22 +1,15 @@
+var a1=1
+var b1=2
 if(3>2) {
 	print a1	
-	if(3>2) {
-		print a2	
-		if(3>2) {
-			print a3	
-		}else {
-		    print b3
-		}
-	}else {
-	    print b2
-	}
 }else {
     print b1
-    if(3>2) {
-		print a4	
-	}else {
-	    print b4
-	}
 }
 var foo = 7
-print foo
+for i from 0 to 5{
+	for j from 1 to 3{
+		print foo
+	}
+}
+var a=3
+print a

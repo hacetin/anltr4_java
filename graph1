@@ -1,60 +1,49 @@
 // Control Flow Graph
 digraph {
 	1 [label=START]
-	2 [label="if start"]
+	2 [label="var a1"]
 		1 -> 2
-	3 [label="if true"]
+	3 [label="var b1"]
 		2 -> 3
-	4 [label="print a1"]
+	4 [label="if start"]
 		3 -> 4
-	5 [label="if start"]
+	5 [label="if true"]
 		4 -> 5
-	6 [label="if true"]
+	6 [label="print a1"]
 		5 -> 6
-	7 [label="print a2"]
-		6 -> 7
-	8 [label="if start"]
+	7 [label=else]
+		4 -> 7
+	8 [label="print b1"]
 		7 -> 8
-	9 [label="if true"]
+	9 [label="if end"]
+		6 -> 9
 		8 -> 9
-	10 [label="print a3"]
+	10 [label="var foo"]
 		9 -> 10
-	11 [label=else]
-		8 -> 11
-	12 [label="print b3"]
+	11 [label="for start"]
+		10 -> 11
+	12 [label="for true"]
 		11 -> 12
-	13 [label="if end"]
-		10 -> 13
+	13 [label="for start"]
 		12 -> 13
-	14 [label=else]
-		5 -> 14
-	15 [label="print b2"]
+	14 [label="for true"]
+		13 -> 14
+	15 [label="print foo"]
 		14 -> 15
-	16 [label="if end"]
-		13 -> 16
+	16 [label="for end"]
 		15 -> 16
-	17 [label=else]
-		2 -> 17
-	18 [label="print b1"]
-		17 -> 18
-	19 [label="if start"]
-		18 -> 19
-	20 [label="if true"]
-		19 -> 20
-	21 [label="print a4"]
+		16 -> 13
+	17 [label="for false"]
+		13 -> 17
+		17 -> 16
+	18 [label="for end"]
+		16 -> 18
+		18 -> 11
+	19 [label="for false"]
+		11 -> 19
+		19 -> 18
+	20 [label="var a"]
+		18 -> 20
+	21 [label="print a"]
 		20 -> 21
-	22 [label=else]
-		19 -> 22
-	23 [label="print b4"]
-		22 -> 23
-	24 [label="if end"]
-		21 -> 24
-		23 -> 24
-	25 [label="if end"]
-		16 -> 25
-		24 -> 25
-	26 [label="var foo"]
-		25 -> 26
-	27 [label="print foo"]
-		26 -> 27
 }
