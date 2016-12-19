@@ -1,5 +1,5 @@
 # anltr4_java
-The t rapository ai an Antlr4 example in Java.  
+That repository is an Antlr4 example in Java.  
 
 Java classes in src folder create a window showing syntax tree and a python file named "output.py".
 When "output.py" file runs, graph1.pdf files is created. graph1.pdf file is control flow graph. 
