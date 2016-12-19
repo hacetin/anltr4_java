@@ -1,7 +1,4 @@
-import java.io.IOException;
 import java.util.Arrays;
-import java.util.Map;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 

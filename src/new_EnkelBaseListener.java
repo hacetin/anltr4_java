@@ -27,6 +27,30 @@ public class new_EnkelBaseListener implements new_EnkelListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterBlock(new_EnkelParser.BlockContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBlock(new_EnkelParser.BlockContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterStatement(new_EnkelParser.StatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitStatement(new_EnkelParser.StatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterVariable(new_EnkelParser.VariableContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -63,49 +87,61 @@ public class new_EnkelBaseListener implements new_EnkelListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBlock(new_EnkelParser.BlockContext ctx) { }
+	@Override public void enterForStatement(new_EnkelParser.ForStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBlock(new_EnkelParser.BlockContext ctx) { }
+	@Override public void exitForStatement(new_EnkelParser.ForStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIfLable(new_EnkelParser.IfLableContext ctx) { }
+	@Override public void enterForConditions(new_EnkelParser.ForConditionsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIfLable(new_EnkelParser.IfLableContext ctx) { }
+	@Override public void exitForConditions(new_EnkelParser.ForConditionsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterElseLable(new_EnkelParser.ElseLableContext ctx) { }
+	@Override public void enterIfLabel(new_EnkelParser.IfLabelContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitElseLable(new_EnkelParser.ElseLableContext ctx) { }
+	@Override public void exitIfLabel(new_EnkelParser.IfLabelContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterStatement(new_EnkelParser.StatementContext ctx) { }
+	@Override public void enterElseLabel(new_EnkelParser.ElseLabelContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitStatement(new_EnkelParser.StatementContext ctx) { }
+	@Override public void exitElseLabel(new_EnkelParser.ElseLabelContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterVarReference(new_EnkelParser.VarReferenceContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVarReference(new_EnkelParser.VarReferenceContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -142,6 +178,18 @@ public class new_EnkelBaseListener implements new_EnkelListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitValue(new_EnkelParser.ValueContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterVariableReference(new_EnkelParser.VariableReferenceContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVariableReference(new_EnkelParser.VariableReferenceContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

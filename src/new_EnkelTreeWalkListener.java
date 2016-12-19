@@ -2,10 +2,8 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import java.util.Stack;
 
-import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 public class new_EnkelTreeWalkListener extends new_EnkelBaseListener {
@@ -101,7 +99,7 @@ public class new_EnkelTreeWalkListener extends new_EnkelBaseListener {
 	}
 
 	@Override
-	public void enterIfLable(new_EnkelParser.IfLableContext ctx) {
+	public void enterIfLabel(new_EnkelParser.IfLabelContext ctx) {
 		int nodeId = ++counter;
 		addNodeToGraphviz(nodeId, "if true");
 		changePointer(nodeId);
@@ -109,12 +107,7 @@ public class new_EnkelTreeWalkListener extends new_EnkelBaseListener {
 	}
 
 	@Override
-	public void exitIfLable(new_EnkelParser.IfLableContext ctx) {
-
-	}
-
-	@Override
-	public void enterElseLable(new_EnkelParser.ElseLableContext ctx) {
+	public void enterElseLabel(new_EnkelParser.ElseLabelContext ctx) {
 		int nodeId = ++counter;
 		addNodeToGraphviz(nodeId, "else");
 		changePointer(nodeId);
@@ -122,7 +115,43 @@ public class new_EnkelTreeWalkListener extends new_EnkelBaseListener {
 		c.branchPointer = c.oldPointer;// end of "if true" node is brachPointer now
 	}
 
-	@Override
-	public void exitElseLable(new_EnkelParser.ElseLableContext ctx) {
+	@Override 
+	public void enterForStatement(new_EnkelParser.ForStatementContext ctx) { 
+		bStack.push(c);
+		c = new Controller(c.oldPointer, c.pointer, c.branchPointer);
+		int nodeId = ++counter;
+		addNodeToGraphviz(nodeId, "for start");
+		changePointer(nodeId);
+		addEdgeToGraphviz(c.oldPointer, nodeId);
+		c.branchPointer = c.pointer;
 	}
+	
+	@Override 
+	public void exitForStatement(new_EnkelParser.ForStatementContext ctx) { 
+		int nodeId = ++counter;
+		addNodeToGraphviz(nodeId, "for end");
+		changePointer(nodeId);
+		addEdgeToGraphviz(c.oldPointer, nodeId);
+		addEdgeToGraphviz(nodeId,c.branchPointer);
+		nodeId = ++counter;
+		addNodeToGraphviz(nodeId, "for false");
+		
+		changePointer(nodeId);
+		addEdgeToGraphviz(c.branchPointer,nodeId);
+		addEdgeToGraphviz(nodeId, c.oldPointer);
+		changePointer(c.oldPointer);
+		int temp = c.pointer;
+		c = bStack.pop();
+		c.pointer = temp;
+		
+	}
+	
+	@Override 
+	public void enterForConditions(new_EnkelParser.ForConditionsContext ctx) { 
+		int nodeId = ++counter;
+		addNodeToGraphviz(nodeId, "for true");
+		changePointer(nodeId);
+		addEdgeToGraphviz(c.branchPointer, nodeId);
+	}
+	
 }
